@@ -8,14 +8,16 @@ fetch(requestUrl)
       return response.json();
     })
     .then(function (data) {
-    fun = (data.response.holidays);
+      fun = (data.response.holidays);
     console.log(fun);
+    console.log(fun.length);
+    console.log(fun[day].date.datetime.day);
   }
       );
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
 // is entry a date or NaN
-var entry = "07/22/2021";
+var entry = "07/11/2021";
 
 var dateCheck = Date.parse(entry);
 
@@ -29,3 +31,10 @@ function verDate(dateCheck) {
 
 console.log(verDate(dateCheck));
 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
+// separate day, month and year from entry
+var month = entry.substring(0, 2);
+var day = parseInt(entry.substring(3, 5));
+var year = entry.substring(6);
+
+console.log(month, day, year);
