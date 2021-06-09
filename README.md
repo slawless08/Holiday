@@ -18,8 +18,8 @@ This time, our team has to show how we work together, and no better way to do it
  
 
  ## <h2 id="Works"><i> How it works?</i></h2>
- <p>You'll have to type the date that you want, and it will automaticly deploy what holiday is celebrated that day or the closest holiday of the typed days. It also includes some information about what people usually do on that day</p>
- <img src="" alt = "Failed to load the screenshot"></a>
+ <p>You'll have to type the date that you want, and it will automaticly deploy what holiday is celebrated that day or the closest holiday of the typed day. It also includes some information about what people usually do on that day</p>
+ <img src="./assets/holiday-thumbnail.jpg" alt="Failed to load the screenshot">
 
  ## <h2 id="Future Updates"><i>Future Updates</i></h2>
  <p>As you know, it's our first time doing a project in groups. So expect some mistakes or bugs in the app. We'll try to fix them while we learn more in the future but if you want to try it then just click right <a href="" target="_blank">here</a></p>
