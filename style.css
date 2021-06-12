@@ -1,0 +1,41 @@
+.box {
+    align-items: center;
+    width:50%;
+    justify-content: center;
+    margin:auto;
+    text-align: center;
+   margin-top: 10%;
+   padding:auto;
+   opacity: 0.9;
+   color:black
+}
+.title{
+    color:rgb(218, 25, 121);
+    font-family: 'Chango', cursive;
+}
+
+
+input {
+    text-align: center;
+
+}
+
+html{
+    background-image: url(/pexels-ylanite-koppens-796607.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: inherit;
+}
+
+.subtitle {
+    color:rgb(238, 109, 49);
+    font-family: 'Chango', cursive;
+}
+
+.result-list {
+    gap:2;
+}
+
+h2 {
+    font-weight: bold;
+}
