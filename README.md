@@ -34,7 +34,7 @@ This time, our team has to show how we work together, and no better way to do it
 <li>API</li>
 
  ## <h2 id=Future-Updates><i>Future Updates</i></h2>
- <p>As you know, it's our first time doing a project in groups. So expect some mistakes or bugs in the app. We'll try to fix them while we learn more in the future but if you want to try it then just click right <a href="" target="_blank">here</a></p>
+ <p>As you know, it's our first time doing a project in groups. So expect some mistakes or bugs in the app. We'll try to fix them while we learn more in the future but if you want to try it then just click right <a href="https://slawless08.github.io/Holiday/" target="_blank">here</a></p>
  
 
  ## <h2 id="contact"><i>Contact information</i></h2>
