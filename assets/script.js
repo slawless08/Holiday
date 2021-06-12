@@ -20,43 +20,48 @@ $(document).ready(function () {
 var country = localStorage.getItem("Country-code");
 
 // variables for text entry box and button & for holding text entry value
-var entryBox = document.getElementById(""); //text entry box ID
-var search = document.getElementById(""); //search button ID
+var entryBox = document.querySelector(".input"); //text entry box class
+var search = document.querySelector(".button"); //search button class
 var entry;
+
+// letsParty function moves to next HTML page
+// it is called in the function fourLoop after all returned data is saved to local memory
+function letsParty() {
+  document.location.href = 'index2.html';
+}
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN
 // is entry a date or NaN
 // to use in entry verification
-entry = "07/16/2021"; //for text purposes... comment out when hooked to full HTML
-var dateCheck = Date.parse(entry);
+// date check defined & isEntryDate called in search button listener event 
+var dateCheck;
 
-function verDate(dateCheck) {
-  if (isNaN(dateCheck)) {
-    return 'try again';
-  }
-  return "happy Birthday";
+function isEntryDate() {
+  function verDate(dateCheck) {
+    if (isNaN(dateCheck)) {
+      // error grabs blank h tag in HTML & makes message pop up
+      var error = document.querySelector(".error");
+      error.innerText = "Please enter a date in the format mm-dd-yyyy";
+    } 
 }
-// NEED to add the inner HTML alert to div above the input box >> please enter valid date
-console.log(verDate(dateCheck));
+}
 
 // clears input box once search initiated (because we want to clear "bad" entry info)
 function reset(){
-  document.getElementById( "entryBox" ).value='';
+  entryBox.value='';
 }
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
-// separate day, month and year from entry
-// day is turned into an number and leading zero removed if any
-var month = entry.substring(0, 2);
-var dayString = entry.substring(3, 5);
-var day = parseInt(dayString, 10);
-var year = entry.substring(6);
+// variables are defined within search button listener event
+var month;
+var dayString;
+var day;
+var year;
 
 // fun is named within API request, is an array of all holidays returned
 var fun;
 
-// fourLoop works inside of funTimes which, when working with the data from the API fetch request (inside the partyDates function), returns four items from API information array starting at 0 or 1/2 array length (midDays) based on what day of the month user enters (turningPoint)
+// fourLoop works inside of funTimes which, when working with the data from the API fetch request (inside the partyDates function), saves four items to local memory from API information array starting at 0 or 1/4 increments of array length (midDays) based on what day of the month user enters (turningPoint)
 var midDays; 
 var turningPoint;
 var j;
@@ -64,19 +69,36 @@ var j;
 function fourLoop (){
   for(i = 0; i < 4; i++){
     console.log(fun[i + j].name);
-    console.log(fun[i + j].description);
+    localStorage.setItem("Name-One", (fun[0 + j].name));
+    localStorage.setItem("Name-Two", (fun[1 + j].name));
+    localStorage.setItem("Name-Three", (fun[2 + j].name));
+    localStorage.setItem("Name-Four", (fun[3 + j].name));
+    localStorage.setItem("Description-One", (fun[0 + j].description));
+    localStorage.setItem("Description-Two", (fun[1 + j].description));
+    localStorage.setItem("Description-Three", (fun[2 + j].description));
+    localStorage.setItem("Description-Four", (fun[3 + j].description));
+    letsParty();
   }
 }
 
 function funTimes (){
-  if (day < 17) {
+  if (day < 9) {
     turningPoint = 0;
     j = turningPoint;
     fourLoop ();
-  }  else if (day >= 17) {
-    turningPoint = midDays;
+  }  else if (day < 16 && day >= 9) {
+    turningPoint = Math.trunc(midDays);
     console.log(turningPoint);
     j = turningPoint;
+    fourLoop ();
+  }  else if (day < 24 && day >= 16) {
+    turningPoint = Math.trunc(midDays);
+    j = parseInt(turningPoint) * 2;
+    fourLoop ();
+  }  else if (day >= 24) {
+    turningPoint = Math.trunc(midDays);
+    console.log(turningPoint);
+    j = parseInt(turningPoint) * 3;
     fourLoop ();
   }
 }
@@ -93,21 +115,28 @@ function partyDates (){
       })
       .then(function (data) {
         fun = (data.response.holidays);
-        midDays = parseInt(fun.length) / 2;
+        midDays = parseInt(fun.length) / 4;
         funTimes();
       });
-  // NEED TODO save API returns to memory
-  // NEED TODO move it to next page
 }
 
 // search button listener event saves text entry value 
-// NEED to add link to next HTML page
-//NEXT 
-// search.addEventListener("click", function(){
-//   entry = entryBox.value;
-//   console.log(entryBox);
-//   reset();
-//   partyDates();
-// });
+search.addEventListener("click", function(){
+  entry = entryBox.value;
+  dateCheck= Date.parse(entry);
 
-partyDates();
+  reset();
+  isEntryDate()
+
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring
+  // separate day, month and year from entry
+  // day is turned into an number and leading zero removed if any
+  month = entry.substring(0, 2);
+  dayString = entry.substring(3, 5);
+  day = parseInt(dayString, 10);
+  year = entry.substring(6);
+
+  partyDates();
+});
+
+
