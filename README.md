@@ -1,5 +1,5 @@
-# Holiday
- <h2>Holiday planner</h2>
+# PartyRama
+ <h2>PartyRama</h2>
 <p> Welcome to our first project! 
 This time, our team has to show how we work together, and no better way to do it than creating an app that will help you organize your plans in the next holidays acording to your current date.
 </p>
@@ -21,8 +21,9 @@ This time, our team has to show how we work together, and no better way to do it
  
 
  ## <h2 id="Works"><i> How it works?</i></h2>
- <p>You'll have to type the date that you want, and it will automaticly deploy what holidays are celebrated that day or the closest holidays acording to the typed day (4 holidays). That way you can make plans </p>
+ <p>You'll have to type the date that you want, and it will automaticly deploy what holidays are celebrated that day or the closest holidays acording to the typed day (4 holidays). That way you can make plans for your party </p>
  <img src="./assets/readme-image1.jpg" alt="Failed to load the screenshot">
+ <p>image by Ylanite Koppens, if you want to see the original page click in the next link <a href="https://www.pexels.com/photo/assorted-colors-paper-cutouts-closeup-photo-796607/" target ="_blank">here</a></p>
 
   ## <h2 id="tech"><i> Technologies used</i></h2>
 <p>For this app we used the following:</p>
