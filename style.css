@@ -39,3 +39,9 @@ html{
 h2 {
     font-weight: bold;
 }
+
+.error{
+    color:white;
+    background-color:red;
+    border-radius: 10px;
+}
