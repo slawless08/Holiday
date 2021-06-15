@@ -32,19 +32,18 @@ var year;
 // search button listener event saves text entry value, checks to see if entry is a valid date, parses month, day, and year from entry, and calls function triggering second API request
 search.addEventListener("click", function(){
   entry = entryBox.value;
-  var dateCheck = Date.parse(entry);
+  var dateCheck = new Date(entry);
+  console.log(dateCheck);
   
   entryBox.value ='';
 
-  if (isNaN(dateCheck)) {
+  if (dateCheck == "Invalid Date") {
     document.querySelector(".error").innerText = "Please enter a date in the format mm-dd-yyyy";
   }
 
-  month = entry.substring(0, 2);
-  dayString = entry.substring(3, 5);
-  day = parseInt(dayString, 10);
-  year = entry.substring(6);
-
+  month = (dateCheck.getMonth()) + 1;
+  day = dateCheck.getDate();
+  year = dateCheck.getFullYear();
   partyDates();
 });
 
