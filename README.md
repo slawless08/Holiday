@@ -21,7 +21,7 @@ This time, our team has to show how we work together, and no better way to do it
  
 
  ## <h2 id="Works"><i> How it works?</i></h2>
- <p>You'll have to type the date that you want, and it will automaticly deploy what holidays are celebrated that day or the closest holidays acording to the typed day (4 holidays). That way you can make plans for your party </p>
+ <p>You'll have to type the date that you want, and it will automatically deploy what holidays are celebrated that day or the closest holidays acording to the typed day (4 holidays). That way you can make plans for your party </p>
  <img src="./assets/readme-image1.jpg" alt="Failed to load the screenshot">
  <p>image by Ylanite Koppens, if you want to see the original page click in the next link <a href="https://www.pexels.com/photo/assorted-colors-paper-cutouts-closeup-photo-796607/" target ="_blank">here</a></p>
 
