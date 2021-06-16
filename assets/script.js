@@ -33,18 +33,16 @@ var year;
 search.addEventListener("click", function(){
   entry = entryBox.value;
   var dateCheck = new Date(entry);
-  console.log(dateCheck);
-  
   entryBox.value ='';
 
-  if (dateCheck == "Invalid Date") {
+  if (entry.length < 6 || dateCheck.getFullYear() > 2100 || dateCheck == "Invalid Date") {
     document.querySelector(".error").innerText = "Please enter a date in the format mm-dd-yyyy";
-  }
-
+  } else {
   month = (dateCheck.getMonth()) + 1;
   day = dateCheck.getDate();
   year = dateCheck.getFullYear();
   partyDates();
+  }
 });
 
 // partyDates makes API request and designates the point at which results are drawn from the data (based on date entered by user)
@@ -62,14 +60,12 @@ function partyDates (){
       .then(function (data) {
         fun = (data.response.holidays);
         midDays = parseInt(fun.length) / 4;
-        
         if (day < 9) {
           turningPoint = 0;
           j = turningPoint;
           fourLoop ();
         }  else if (day < 16 && day >= 9) {
           turningPoint = Math.trunc(midDays);
-          console.log(turningPoint);
           j = turningPoint;
           fourLoop ();
         }  else if (day < 24 && day >= 16) {
@@ -78,7 +74,6 @@ function partyDates (){
           fourLoop ();
         }  else if (day >= 24) {
           turningPoint = Math.trunc(midDays);
-          console.log(turningPoint);
           j = parseInt(turningPoint) * 3;
           fourLoop ();
         }
@@ -89,7 +84,7 @@ function partyDates (){
 var j;
 function fourLoop (){
   for(i = 0; i < 4; i++){
-    console.log(fun[i + j].name);
+    // console.log(fun[0 + j].name);
     localStorage.setItem("Name-One", (fun[0 + j].name));
     localStorage.setItem("Name-Two", (fun[1 + j].name));
     localStorage.setItem("Name-Three", (fun[2 + j].name));
